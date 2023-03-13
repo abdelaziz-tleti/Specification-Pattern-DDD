@@ -4,7 +4,7 @@ namespace App;
 
 use App\Customer;
 
-class CustomerIsGold
+class CustomerIsGold implements Specification
 {
 
     public function _construct()
