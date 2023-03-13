@@ -9,6 +9,18 @@ use App\CustomerRepository;
 class CustomerIsGoldTest extends TestCase
 {
 
+    protected $customers;
+
+    public function setup(): void
+    {
+        $this->customers = new CustomerRepository([
+            new Customer('gold'),
+            new Customer('silver'),
+            new Customer('bronze'),
+            new Customer('gold'),
+            new Customer('silver'),
+        ]);
+    }
     /** @test */
     function a_customer_is_gold_if_they_have_the_respective_type()
     {
@@ -23,17 +35,16 @@ class CustomerIsGoldTest extends TestCase
 
 
     /** @test */
+    function it_fetch_all_customers()
+    {
+        $results = $this->customers->getCustomers();
+        $this->assertCount(5, $results);
+    }
+
+    /** @test */
     function it_fetch_all_customers_who_match_given_specifications()
     {
-        $customers = new CustomerRepository([
-            new Customer('gold'),
-            new Customer('silver'),
-            new Customer('bronze'),
-            new Customer('gold'),
-            new Customer('silver'),
-        ]);
-        $results = $customers->bySpecification(new CustomerIsGold);
-
+        $results = $this->customers->bySpecification(new CustomerIsGold);
         $this->assertCount(2, $results);
     }
 }

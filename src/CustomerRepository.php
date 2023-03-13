@@ -16,13 +16,17 @@ class CustomerRepository
 
     public function bySpecification($specification)
     {
-        $matches = [];
-        foreach ($this->customers as $customer) {
-            if($specification->isSatisfiedBy($customer)){
-                $matches[] = $customer;
-            }
-        }
-        return $matches;
+
+        // $matches = [];
+        // foreach ($this->customers as $customer) {
+        //     if($specification->isSatisfiedBy($customer)){
+        //         $matches[] = $customer;
+        //     }
+        // }
+        // return $matches;
+
+        // use callable with array_filter 
+        return array_filter($this->customers, array($specification, 'isSatisfiedBy'));
     }
 
     public function getCustomers()
