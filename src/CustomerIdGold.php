@@ -1,19 +1,17 @@
 <?php
 
 namespace App;
+
 use App\Customer;
 
+class CustomerIsGold
+{
 
-class CustomerIsGold  {
-
-    public function _construct(){
-
+    public function _construct()
+    {
     }
-    public function isSatisfiedBy(Customer $customer){
-
-
-      return  $customer->plan() == 'gold';
+    public function isSatisfiedBy(Customer $customer)
+    {
+        return  $customer->plan() == 'gold';
     }
-
 }
-

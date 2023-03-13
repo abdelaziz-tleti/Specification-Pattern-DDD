@@ -1,5 +1,6 @@
 <?php
 namespace App;
+
 class Customer
 {
     protected $plan;
@@ -8,7 +9,8 @@ class Customer
         $this->plan = $plan;
     }
 
-    public function plan(){
+    public function plan()
+    {
         return $this->plan;
     }
 }
