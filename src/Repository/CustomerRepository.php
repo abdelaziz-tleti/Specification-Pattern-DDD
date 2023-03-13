@@ -1,8 +1,8 @@
 <?php
 
-namespace App;
+namespace App\Repository;
 
-use App\CustomerIsGold;
+use App\Specification\SpecificationInterface;
 
 
 class CustomerRepository
@@ -14,7 +14,7 @@ class CustomerRepository
         $this->customers = $customers;
     }
 
-    public function bySpecification($specification)
+    public function bySpecification(SpecificationInterface $specification)
     {
 
         // $matches = [];

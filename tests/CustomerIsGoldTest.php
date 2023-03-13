@@ -1,10 +1,9 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-
-use App\CustomerIsGold;
-use App\Customer;
-use App\CustomerRepository;
+use App\Specification\CustomerIsGold;
+use App\Customer\Customer;
+use App\Repository\CustomerRepository;
 
 class CustomerIsGoldTest extends TestCase
 {
